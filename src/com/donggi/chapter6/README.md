@@ -23,3 +23,67 @@ t = 리모컨 역할을 한다
 1. 클래스 작성
 2. 객체 생성
 3. 객체 사용
+
+
+## 객체 배열
+참조변수 배열이라고도 한다
+```java
+Tv tv1, tv2, tv3;
+==> Tv[] tvArr = new Tv[3];
+
+Tv[] tvArr = new Tv[3]; // 길이가 3인 Tv타입의 참조변수 배열
+        
+tvArr[0] = new Tv();
+tvArr[1] = new Tv();
+tvArr[2] = new Tv();
+
+// 요걸 배열로 나타낸 게 위 코드
+Tv t1 = new Tv();
+Tv t2 = new Tv();
+Tv t3 = new Tv();
+```
+
+## 클래스의 정의
+
+클래스 == 데이터 + 함수
+
+1. 변수 : 하나의 데이터를 저장할 수 있는 공간
+2. 배열 : 같은 종류의 여러 데이터를 하나로 저장할 수 있는 공간
+3. 구조체 : 서로 관련된 여러 데이터를 하나로 저장할 수 있는 공간
+4. 클래스 : 데이터와 함수의 결합 (구조체 + 함수)
+
+```java
+int hour;
+int minute;
+int second;
+
+int hour1, hour2, hour3;
+int minute1, minute2, minute3;
+int second1, second2, second3;
+
+int[] hour = new int[3];
+int[] minute = new int[3];
+int[] second = new int[3];
+
+=======>
+
+Class Time {
+    int hour;
+    int minute;
+    int second;
+}
+        
+Time t = new Time();
+
+Time t1 = new Time();
+Time t2 = new Time();
+Time t3 = new Time();
+
+Time[] t = new Time[3];
+t[0] = new Time();
+t[1] = new Time();
+t[2] = new Time();
+
+```
+
+
