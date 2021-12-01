@@ -9,6 +9,7 @@ public class Ex6_4 {
         long result2 = mm.subtract(5L, 3L);
         long result3 = mm.multiply(5L, 3L);
         double result4 = mm.divide(5L, 3L);
+        mm.printGugudan(6);
 
         System.out.println("min(5, 3) = " + result0);
         System.out.println("max(5, 3) = " + result);
@@ -20,9 +21,23 @@ public class Ex6_4 {
 }
 
 class MyMath {
+
+    void printGugudan(int dan) {
+        if (!(2 <= dan && dan <= 9)) {
+            return; // 입력받은 dan이 2~9가 아니면, 메서드 종료하고 돌아감
+        }
+        for (int i = 1; i <= 9; i++) {
+            System.out.printf("%d * %d = %d%n", dan, i, dan * i);
+        }
+//        return ;
+    }
+
     long add(long a, long b) {
-        long result = a + b;
-        return result;
+        if (a > b) {
+            return a; // 조건식이 참일때만 실행
+        } else {
+            return b; // 조건식이 거짓일때만 실행
+        }
         // return a + b;        // 위의 두 줄을 이와 같이 한 줄로 간단히 할 수 있다.
     }
 
