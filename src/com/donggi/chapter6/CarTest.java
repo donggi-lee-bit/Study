@@ -5,8 +5,8 @@ class Car {
     String gearType;
     int door;
 
-    Car() { // 기본 생성자
-
+    Car() {
+        this("white", "auto", 4);
     }
 
     Car(String c, String g, int d) { // 매개변수가 있는 생성자
