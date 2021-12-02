@@ -24,7 +24,7 @@ public class LinkedListEx {
         collect.add("Geeks");
 
         System.out.println("The LinkedList is: " + list);
-        list.addAll(collect);
+        list.addAll(1, collect);
         System.out.println("The new Linked list is: " + list);
 
     }
