@@ -1,6 +1,6 @@
 package com.donggi.chapter6;
 
-public class MymathTest2 {
+public class MyMathTest2 {
     public static void main(String[] args) {
         System.out.println(MyMath2.add(200L, 100L)); // 클래스 메서드 호출
         MyMath2 mm = new MyMath2(); // 인스턴스 생성
