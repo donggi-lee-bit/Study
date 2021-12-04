@@ -29,6 +29,75 @@
   - 순서는 유지되지 않으며, key는 중복을 허용하지 않고, value는 중복 허용 (우편번호, 지역번호)
   - HashMap, TreeMap, Hashtable, Properies 등 (Map이라고 쓰이지 않은 애들은 표준화 되기 전 만들어짐)
 
+### Collection 인터페이스의 메서드
+- add(), addAll()
+  - 지정된 객체 또는 Collection의 객체들을 Collection에 추가한다
+
+- contains(), containsAll()
+  - 지정된 객체 또는 Collection의 객체들이 Collection에 포함되어 있는지 확인한다
+
+- remove(), removeAll()
+  - 지정된 객체를 삭제하거나 지정된 Collection에 포함된 객체들을 삭제한다
+
+### List 인터페이스의 메서드 (순서 O, 중복 O)
+- add(), addAll()
+
+- indexOf(), lastIndexOf()
+  - 지정된 객체의 위치를 반환한다 (List의 첫번째 요소부터 순방향으로 찾는다)
+  - 지정된 객체의 위치를 반환한다 (List의 마지막 요소부터 역방향으로 찾는다)
+
+- remove()
+
+- set()
+  - 지정된 위치에 객체를 저장한다
+
+- subList()
+  - 지정된 범위에 있는 객체를 반환한다
+
+### Set 인터페이스 (순서 X, 중복 X)
+Set 인터페이스의 메서드 = Collection 인터페이스의 메서드와 같다
+
+- addAll()
+  - 지정된 Collection의 객체들을 Collection에 추가 (합집합)
+- containsAll()
+  - 지정된 Collection의 객체들이 Collection에 포함되어 있는지 확인한다 (부분집합)
+- removeAll()
+  - 지정된 Collection에 포함된 객체들을 삭제한다(차집합)
+- retainAll()
+  - 지정된 Collection에 포함된 객체들만 남기고 나머지는 Collection에서 삭제한다 (교집합)
+
+### Map 인터페이스 
+
+- containsKey(), containsValue()
+  - 지정된 key 객체와 일치하는 Map의 key객체가 있는지 확인
+  - 지정된 value 객체와 일치하는 Map의 value객체가 있는지 확인
+- entrySet()
+  - Map에 저장되어 있는 key-value 쌍을 Map.Entry타입의 객체로 저장한 Set으로 반환 (순서X, 중복X)
+- get()
+  - 지정한 key객체에 대응하는 value객체를 찾아 반환
+- keySet()
+  - Map에 저장된 모든 key객체를 반환
+- pull(), pullAll()
+  - Map에 value객체를 key객체에 연결하여 저장
+  - 지정한 key객체와 일치하는 key-value 객체를 삭제
+- remove()
+- values()
+  - Mapd에 저장된 모든 value객체를 반환
+
+## ArrayList
+- ArrayList는 기존 Vector를 개선한 으로 구현원리와 기능적으로 동일
+- Vector는 자체적으로 동기화, ArrayList는 동기화 X
+
+### ArrayList의 메서드
+
+- 추가
+  - add(), add(int index, Object element), addAll(), addAll(int index, Collection c)
+- 삭제
+  - remove(Ojbect o), remove(int index), revmoeAll(), clear()
+- 검색
+  - indexOf(), lastIndexOf(), contains(), get(), get(int index, Object element)
+  - subList(int fromindex, int toindex), Object[] toArray(), toArray(Object[] a), boolean isEmpty(), trimToSize(), size()
+
 ## LinkedList
 
 ### 배열의 장단점
