@@ -123,4 +123,36 @@ LinkedList 단점
 2. 비순차적으로 데이터 추가 / 삭제 ==> LinkedList가 빠르다
 3. 접근시간 ==> ArrayList가 빠르다
 
+## Stack & Queue
+
+### Stack
+LIFO (Last In First Out). 마지막에 저장된 것을 제일 먼저 꺼내게 됨
+- 밑이 막힌 상자
+- 저장(push), 추출(pop)
+- 배열로 구현하는 게 효율적
+
+
+### Queue
+FIFO (First In First Out). 제일 먼저 저장한 것을 제일 먼저 꺼내게 된다
+- 양 끝이 뚫린 상자
+- 저장(offer), 추출(poll)
+- LinkedList로 구현하는 게 효율적
+
+### Stack의 메서드
+- empty() : 비어있는지 boolean으로 반환
+- push() : Stack에 객체를 저장한다 
+- pop() : Stack의 맨 위에 저장된 객체를 꺼낸다.
+- peek() : Stack의 맨 위에 저장된 객체를 반환. pop()과 달리 객체를 꺼내지는 않음 (비었을 때 EmptyStackException 발생)
+- search(Object o) : 주어진 객체를 찾아 그 위치를 반환. 못 찾으면 -1 반환. (배열과 달리 0이 아닌 1부터 시작)
+
+### Queue의 메서드
+- add() : 저장된 객체를 Queue에 추가. 성공시 true 반환. 저장공간 부족하면 IllegalStateException 발생
+- remove() : Queue에서 꺼내 반환. 비어있으면 NoSuchElementException 발생
+- element() : 삭제없이 요소를 읽어온다. peek과 달리 Queue가 비었을 때 NoSuchElementException 발생
+- **offer()** : Queue에 객체를 저장. true, false 반환
+- **poll()** : Queue에서 객체를 꺼내어 반환. 비어있으면 null 반환
+- **peek()** : 삭제없이 요소 읽어온다. 비어있으면 null 반환
+
+
+
 
