@@ -212,6 +212,40 @@ class MapIteratorEx() {
 }
 ```
 
+## Arrays class
+
+- 배열의 출력 : toString()
+- 배열의 복사 : copyOf(), copyfOfRange()
+- 배열 채우기 : fill(), setAll()
+```java
+class fillEx() {
+    
+    fillEx() {
+      int[] arr = new int[5];
+      
+      Arrays.fill(arr,9);   // arr = [9, 9, 9, 9, 9]
+      Arrays.setAll(arr, (i) -> (int)(Math.rancom() * 5) + 1;   // arr = [1, 5, 2, 1, 1]
+    }
+}
+```
+- 배열의 정렬과 검색 : sort(), binarySearch()
+```java
+class binarySearchEx() {
+    binarySearchEx() {
+      int[] arr = {3, 2, 0, 1, 4};
+      int idx = Arrays.binarySearch(arr, 2);    // 정렬되어 있지 않기 때문에 이상한 값이 나옴
+
+      Arrays.sort(arr); // 배열 arr을 정렬한다.
+      Sytem.out.println(Arrays.toString(arr));  // 배열 출력
+      int idx = Arrays.binarySearch(arr, 2);    // 올바른 결과가 나올 것이다
+    } 
+} 
+```
+- 다차원 배열의 출력 : deepToString()
+- 다차원 배열의 비교 : deepEquals()
+- 배열을 List로 변환 : asList()
+
+
  
 
 
