@@ -153,6 +153,109 @@ FIFO (First In First Out). 제일 먼저 저장한 것을 제일 먼저 꺼내�
 - **poll()** : Queue에서 객체를 꺼내어 반환. 비어있으면 null 반환
 - **peek()** : 삭제없이 요소 읽어온다. 비어있으면 null 반환
 
+## Stack & Queue의 활용
 
+### 스택의 활용 예
+- 수식계산
+- 수식괄호검사
+- 워드프로세서의 undo / redo
+- 웹브라우저의 뒤로 / 앞으로
 
+### 큐의 활용 예
+- 최근사용문서
+- 인쇄작업 대기목록
+- 버퍼(buffer)
 
+## Iterator, ListIterator, Enumeration
+- 컬렉션에 저장된 데이터를 접근하는데 사용되는 인터페이스
+- Enumeration은 Iterator의 구버전
+- ListIterator는 Iterator의 접근성을 향상시킨 것 (이전 요소를 확인하는 previous() method가 있다)
+
+### Iterator가 필요한 이유
+- 컬렉션에 저장된 요소들을 읽어오는 방법을 표준화한 것
+- 컬렉션에 iterator()를 호출해서 Iterator를 구현한 객체를 얻어서 사용.
+
+### Iterator의 메서드
+- haxNext() : 확인, 읽어 올 요소가 남아있는지 확인한다. boolean 으로 반환 
+- next() : 읽기, 다음 요소를 읽어 온다.
+
+```java
+import java.util.Iterator;
+import java.util.List;
+
+class IteratorEx() {
+  List list = new ArrayList();
+  Iterator it = list.iterator();    // Iterator는 Collection을 상속받고 있기 때문에 List와 Set 둘 다에 포함되어있다
+  
+  IteratorEx() {
+    while (it.hasNext()) {  // hasNext() 메서드를 이용해 읽어올 요소가 false 될 때까지 while 반복
+      System.out.println(it.next()); // next() 메서드를 이용해 while 실행 시 it 에 포함된 요소를 읽어온다 
+    }
+  } 
+} 
+```
+
+### Map과 Iterator
+- Map에는 Iterator가 없다. keySet(), entrySet(), values()를 호출해야한다
+
+```java
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+class MapIteratorEx() {
+  Map map = new HashMap();
+
+//  Set eSet = map.entrySet();
+//  Iterator it2 = eSet.iterator();
+  Iterator it = map.entrySet().iterator();  // Set으로 반환하는 entrySet() 메서드를 호출하여 iterator() 를 사용한다
+}
+```
+
+## Arrays class
+
+- 배열의 출력 : toString()
+- 배열의 복사 : copyOf(), copyfOfRange()
+- 배열 채우기 : fill(), setAll()
+```java
+class fillEx() {
+    
+    fillEx() {
+      int[] arr = new int[5];
+      
+      Arrays.fill(arr,9);   // arr = [9, 9, 9, 9, 9]
+      Arrays.setAll(arr, (i) -> (int)(Math.rancom() * 5) + 1;   // arr = [1, 5, 2, 1, 1]
+    }
+}
+```
+- 배열의 정렬과 검색 : sort(), binarySearch()
+```java
+class binarySearchEx() {
+    binarySearchEx() {
+      int[] arr = {3, 2, 0, 1, 4};
+      int idx = Arrays.binarySearch(arr, 2);    // 정렬되어 있지 않기 때문에 이상한 값이 나옴
+
+      Arrays.sort(arr); // 배열 arr을 정렬한다.
+      Sytem.out.println(Arrays.toString(arr));  // 배열 출력
+      int idx = Arrays.binarySearch(arr, 2);    // 올바른 결과가 나올 것이다
+    } 
+} 
+```
+- 다차원 배열의 출력 : deepToString()
+- 다차원 배열의 비교 : deepEquals()
+- 배열을 List로 변환 : asList()
+
+## Comparator와 Comparable
+- 객체 정렬에 필요한 메서드(정렬기준 제공)를 정의한 인터페이스
+  - Comparable : 기본 정렬기준을 구현하는데 사용
+  - COmparator : 기본 정렬기준 외에 다른 기준으로 정렬하고자할 때 사용
+```
+public interface Comparator {
+  int compare(Object o1, Object o2); // o1, o2 두 객체를 비교
+  boolean equals(Object obj); // equals를 오버라이딩하라는 뜻
+}
+
+public interface Comparator {
+  int compareTo (Object o); // 주어진 객체(o)를 자신과 비
+}
+```
