@@ -165,6 +165,53 @@ FIFO (First In First Out). 제일 먼저 저장한 것을 제일 먼저 꺼내�
 - 최근사용문서
 - 인쇄작업 대기목록
 - 버퍼(buffer)
+
+## Iterator, ListIterator, Enumeration
+- 컬렉션에 저장된 데이터를 접근하는데 사용되는 인터페이스
+- Enumeration은 Iterator의 구버전
+- ListIterator는 Iterator의 접근성을 향상시킨 것 (이전 요소를 확인하는 previous() method가 있다)
+
+### Iterator가 필요한 이유
+- 컬렉션에 저장된 요소들을 읽어오는 방법을 표준화한 것
+- 컬렉션에 iterator()를 호출해서 Iterator를 구현한 객체를 얻어서 사용.
+
+### Iterator의 메서드
+- haxNext() : 확인, 읽어 올 요소가 남아있는지 확인한다. boolean 으로 반환 
+- next() : 읽기, 다음 요소를 읽어 온다.
+
+```java
+import java.util.Iterator;
+import java.util.List;
+
+class IteratorEx() {
+  List list = new ArrayList();
+  Iterator it = list.iterator();    // Iterator는 Collection을 상속받고 있기 때문에 List와 Set 둘 다에 포함되어있다
+  
+  IteratorEx() {
+    while (it.hasNext()) {  // hasNext() 메서드를 이용해 읽어올 요소가 false 될 때까지 while 반복
+      System.out.println(it.next()); // next() 메서드를 이용해 while 실행 시 it 에 포함된 요소를 읽어온다 
+    }
+  } 
+} 
+```
+
+### Map과 Iterator
+- Map에는 Iterator가 없다. keySet(), entrySet(), values()를 호출해야한다
+
+```java
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+class MapIteratorEx() {
+  Map map = new HashMap();
+
+//  Set eSet = map.entrySet();
+//  Iterator it2 = eSet.iterator();
+  Iterator it = map.entrySet().iterator();  // Set으로 반환하는 entrySet() 메서드를 호출하여 iterator() 를 사용한다
+}
+```
+
  
 
 
