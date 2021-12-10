@@ -224,7 +224,7 @@ class fillEx() {
       int[] arr = new int[5];
       
       Arrays.fill(arr,9);   // arr = [9, 9, 9, 9, 9]
-      Arrays.setAll(arr, (i) -> (int)(Math.rancom() * 5) + 1;   // arr = [1, 5, 2, 1, 1]
+      Arrays.setAll(arr, (i) -> (int)(Math.rancom() * 5) + 1);   // arr = [1, 5, 2, 1, 1]
     }
 }
 ```
@@ -248,7 +248,7 @@ class binarySearchEx() {
 ## Comparator와 Comparable
 - 객체 정렬에 필요한 메서드(정렬기준 제공)를 정의한 인터페이스
   - Comparable : 기본 정렬기준을 구현하는데 사용
-  - COmparator : 기본 정렬기준 외에 다른 기준으로 정렬하고자할 때 사용
+  - Comparator : 기본 정렬기준 외에 다른 기준으로 정렬하고자할 때 사용
 ```
 public interface Comparator {
   int compare(Object o1, Object o2); // o1, o2 두 객체를 비교
@@ -259,3 +259,34 @@ public interface Comparator {
   int compareTo (Object o); // 주어진 객체(o)를 자신과 비
 }
 ```
+
+## HashSet
+HashSet : 순서 X, 중복 X
+List : 순서 O, 중복 O
+
+- HashSet
+  - Set 인터페이스를 구현한 대표적인 컬렉션 클래스
+  - 순서를 유지하려면 LinkedHashSet 클래스 사용
+
+- TreeSet
+  - 범위 검색과 정렬에 유리한 컬렉션 클래스
+  - HashSet보다 데이터 추가, 삭제에 시간이 더 걸림
+
+### 주요 메서드
+
+- HashSet()
+  - HashSet(Collecion c) : 생성자
+  - HashSet(int initialCapacity) : 컬렉션 클래스는 용량이 부족하면 자동으로 늘리지만 초기 용량을 설정하는 것
+  - HashSet(int initialCapacity, float loadFactor) : loadFactor는 어느 시점에 용량을 두 배로 늘릴건지. 0.8하면 80% 찼을 경우에 용량을 늘린다
+
+- add(Object o) : 추가
+  - addAll(Collecion c) : 합집합
+  - remove(Object o) : 삭제
+  - removeAll(Collection c) : 삭제
+  - retainAll(Collection c) : 조건부삭제, 차집합
+  - clear() : 모두삭제
+
+- isEmpty() : 비었는지 확인한 결과 반환
+  - size() : 저장된 객체 수
+  - toArray() : 객체 배열로 반환
+  - toArray(Ojbect[] a) : 객체 배열로 반환
