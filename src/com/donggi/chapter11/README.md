@@ -313,3 +313,44 @@ List : 순서 O, 중복 O
 - SortedSet headSet(Object toElement) : 지정된 객체보다 작은 값의 객체들을 반환
 - Sorted tailSet(Object fromElement) : 지정된 객체보다 큰 값의 객체들을 반환
 
+## HashMap
+- Map interface를 구현. 데이터를 키와 값의 쌍으로 저장 (순서X, 중복 : key X, 값 O)
+- HashMap(동기화 X)은 Hashtable(동기화 O)의 신버전
+---
+- HashMap
+  - Map 인터페이스를 구현한 대표적인 컬렉션 클래스
+  - 순서를 유지하려면 LinkedHashMap 클래스를 사용하면 된다
+- TreeMap (= TreeSet)
+  - 범위 검색 정렬에 유리한 컬렉션 클래스
+  - HashMap보다 데이터 추가, 삭제에 시간이 더 걸림
+  
+### hashing
+- 해시함수로 해시테이블에 데이터를 저장, 검색
+- 해시테이블은 배열과 링크드 리스트가 조합된 형태
+- 해시테이블에 저장된 데이터를 가져오는 과정
+  - key로 해시함수를 호출해서 해시코드를 얻는다
+  - 해시코드에 대응하는 링크드리스트를 배열에서 찾는다
+  - 링크드리스트에서 key와 일치하는 데이터를 찾는다
+    - 해시함수는 같은 키에 대해 항상 같은 해시코드를 반환해야 한다. 서로 다른 키일지라도 같은 값의 해시코드를 반환할 수도 있다.
+
+### HashMap 주요 메서드
+- HashMap()
+- Object put(Object key, Object value) : key와 value 입력
+- void putAll(Map m)
+- Object remove(Object key)
+- Object replace(Object key, Object value)
+- boolean replace(Object key, Object oldValue, Object newValue)
+---
+- Set entry()
+- Set keySet()
+- Collection values()
+---
+- Object get(Object key)
+- Object getOrDefault(Object key, Object dafaultValue)
+- boolean containsKey(Object Key)
+- boolean containsValue(Object Value)
+---
+- int size()
+- boolean isEmpty()
+- void clear()
+- Object clone()
