@@ -354,3 +354,62 @@ List : 순서 O, 중복 O
 - boolean isEmpty()
 - void clear()
 - Object clone()
+
+## Collections
+
+1. 컬렉션 채우기, 복사, 정렬, 검색 : fill(), copy(), sort(), binarySearch() 등 제공
+2. 컬렉션의 동기화 : syncronizedXXX()
+```
+static Collection syncronizedCollection(Collection c)
+static List syncronizedList(List list)
+static Set syncronizedSet(Set s)
+static Map syncronizedMap(Map m)
+static SortedSet syncronizedSortedSet(SortedSet s)
+static SortedMap syncronizedSortedMap(SortedMap m)
+```
+```
+List syncList = Collections.syncronizedList(new ArrayList())
+```
+- Vector와 ArrayList의 차이점이 동기화인데 동기화되지 않는 List인 ArrayList를 ```syncronizedList()``` 메서드에 넣어 동기화 된 list를 가져온다.
+3. 변경할 수 없는 컬렉션을 만들 수 있다
+```
+static Collection unmodifiableCollection(Collection c)
+static List unmodifiableList(List list)
+static Set unmodifiableSet(Set s)
+static Map unmodifiableMap(Map m)
+static SortedSet unmodifiableSortedSet(SortedSet s)
+static SortedMap unmodifiableSortedMap(SortedMap m)
+```
+- unmodifiable() 메서드를 이용하면 변경 할 수 없고 읽기 전용으로 컬렉션을 만들 수 있다
+
+4. 객체를 한 개만 저장하는 싱글톤 컬렉션을 만들 수 있다
+```
+static List singletonList(Object o)
+static Set singletonSet(Object o) // singletonSet 과는 다른가봄
+static Map singletonMap(Object key, Object value)
+```
+
+5. 한 종류의 객체만 저장하는 컬렉션
+```
+static Collection checkedCollection(Collection c, Class type)
+static List checkedList(List list, Class type)
+static Set checkedSet(Set s, Class type)
+static Map checkedMap(Map m, Class keyType, Class valueType)
+static Queue checkedQueue(Queue q, Class type)
+static NavigableSet checkedNavigableSet(NavigableSet s, Class type)
+static SortedSet checkedSortedSet(SortedSet s, Class type)
+static NavigableMap checkedNavigableMap(NavigableMap m, Class keyType, Class vl)
+static SortedMap checkedSortedMap(SortedMap m, Class keyType, Class valueType)
+```
+
+```java
+class checkedListEx {
+  
+    checkedListEx() {
+      List list = new ArrayList();
+      List checkedList = checkedList(list, String.class);   // String만 저장 가능
+      checkedList.add("abc");
+      checkedList.add(new Integer(3));  // ClassCastException
+    }
+}
+```
