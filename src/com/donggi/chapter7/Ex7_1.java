@@ -36,6 +36,6 @@ public class Ex7_1 {
         stv.displayCaption("Hello, World!");
         stv.caption = true;
         stv.displayCaption("Hello, World!");
-        
+
     }
 }
