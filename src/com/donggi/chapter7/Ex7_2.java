@@ -9,8 +9,8 @@ public class Ex7_2 {
         System.out.println("==============");
 
 //        Point p = new Point();
-        Point3D p = new Point3D();
-        System.out.println(p.getLocation());
+//        Point3D p = new Point3D();
+//        System.out.println(p.getLocation());
     }
 }
 
@@ -48,6 +48,11 @@ class Point {
     int x;
     int y;
 
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
     String getLocation() {
         return "x :" + x + ", y :" + y;
     }
@@ -55,6 +60,13 @@ class Point {
 
 class Point3D extends Point {
     int z;
+
+    Point3D(int x, int y, int z) {
+        super();
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
     String getLocation() {
         return super.getLocation() + ", z :" + z;
     }
