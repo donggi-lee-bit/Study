@@ -45,30 +45,25 @@ class Child extends Parent{
 }
 
 class Point {
-    int x;
-    int y;
+    int x = 10;
+    int y = 20;
 
     Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
-    String getLocation() {
-        return "x :" + x + ", y :" + y;
-    }
 }
 
 class Point3D extends Point {
-    int z;
+    int z = 30;
+
+    Point3D() {
+        this(100, 200, 300);
+    }
 
     Point3D(int x, int y, int z) {
-        super();
-        this.x = x;
-        this.y = y;
+        super(x, y);    // Point(int x, int y)를 호출한다.
         this.z = z;
-    }
-    String getLocation() {
-        return super.getLocation() + ", z :" + z;
     }
 }
 
