@@ -18,6 +18,7 @@ public class LambdaEx_2 {
         Stream<String> strStream2 = Stream.of(new String[]{"a", "b", "c"});
         Stream<String> strStream3 = Arrays.stream(new String[]{"a", "b", "c"});
         Stream<String> strStream4 = Arrays.stream(new String[]{"a", "b", "c"}, 0, 3);
+        Stream<String> strStream5 = Arrays.stream(new String[]{"a", "b", "c", "d", "e", "f"}, 1, 4);
 
         strStream.forEach(System.out::println);
         System.out.println("=============");
@@ -27,6 +28,7 @@ public class LambdaEx_2 {
         System.out.println("=============");
         strStream4.forEach(System.out::println);
         System.out.println("=============");
+        strStream5.forEach(System.out::println);
 
     }
 }
