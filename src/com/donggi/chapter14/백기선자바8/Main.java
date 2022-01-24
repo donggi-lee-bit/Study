@@ -6,8 +6,12 @@ public class Main {
         Foo foo = new DefaultFoo("keesun");
         foo.printName();
         foo.printNameUpperCase();
+        System.out.println("======");
+        foo.printNameLowerCase();
+
 
         Foo.printAnything();
+        Foo.anotherThings();
     }
 }
 

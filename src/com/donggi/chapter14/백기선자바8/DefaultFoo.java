@@ -9,6 +9,11 @@ public class DefaultFoo implements Foo, Bar {
     }
 
     @Override
+    public void printNameLowerCase() {
+        System.out.println(this.name.toLowerCase());
+    }
+
+    @Override
     public void printNameUpperCase() {
         System.out.println(this.name.toUpperCase());
     }
